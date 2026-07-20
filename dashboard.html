@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sentinela Acadêmica | Visão Geral</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo-area">
+
+            <img src="logo.png" alt="Logo">
+
+            <h2>Sentinela Acadêmica</h2>
+
+        </div>
+
+        <nav>
+
+            <a class="active" href="dashboard.html">
+                <i class="fa-solid fa-house"></i>
+                <span>Visão Geral</span>
+            </a>
+
+            <a href="alunos.html">
+                <i class="fa-solid fa-user-graduate"></i>
+                <span>Alunos</span>
+            </a>
+
+            <a href="turmas.html">
+                <i class="fa-solid fa-school"></i>
+                <span>Turmas</span>
+            </a>
+
+            <a href="alertas.html">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <span>Alertas</span>
+            </a>
+
+            <a href="relatorios.html">
+                <i class="fa-solid fa-chart-column"></i>
+                <span>Relatórios</span>
+            </a>
+
+            <a href="configuracoes.html">
+                <i class="fa-solid fa-gear"></i>
+                <span>Configurações</span>
+            </a>
+
+        </nav>
+
+    </aside>
+
+    <!-- Conteúdo -->
+
+    <main class="content">
+
+        <header>
+
+            <div>
+
+                <h1>Visão Geral</h1>
+
+                <p>
+                    Bem-vinda, Coordenação Pedagógica.
+                </p>
+
+            </div>
+
+        </header>
+
+        <!-- Cards -->
+
+        <section class="cards">
+
+            <div class="card-info">
+
+                <i class="fa-solid fa-user-graduate"></i>
+
+                <div>
+
+                    <h3>286</h3>
+
+                    <span>Alunos</span>
+
+                </div>
+
+            </div>
+
+            <div class="card-info">
+
+                <i class="fa-solid fa-school"></i>
+
+                <div>
+
+                    <h3>9</h3>
+
+                    <span>Turmas</span>
+
+                </div>
+
+            </div>
+
+            <div class="card-info">
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+                <div>
+
+                    <h3>18</h3>
+
+                    <span>Alertas</span>
+
+                </div>
+
+            </div>
+
+            <div class="card-info">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                <div>
+
+                    <h3>87%</h3>
+
+                    <span>Frequência Média</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Conteúdo inferior -->
+
+        <section class="dashboard-grid">
+
+            <div class="chart-card">
+
+                <h2>Evolução dos Indicadores</h2>
+
+                <canvas id="grafico"></canvas>
+
+            </div>
+
+            <div class="alert-card">
+
+                <h2>Alunos em Atenção</h2>
+
+                <ul>
+
+                    <li>
+                        <strong>Maria Clara</strong>
+                        <span>IPA 48</span>
+                    </li>
+
+                    <li>
+                        <strong>João Pedro</strong>
+                        <span>IPA 55</span>
+                    </li>
+
+                    <li>
+                        <strong>Ana Júlia</strong>
+                        <span>IPA 59</span>
+                    </li>
+
+                    <li>
+                        <strong>Lucas Henrique</strong>
+                        <span>IPA 61</span>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="dashboard.js"></script>
+
+</body>
+</html>

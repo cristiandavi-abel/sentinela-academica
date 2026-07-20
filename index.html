@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sentinela Acadêmica</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <main class="login">
+
+        <!-- Lado Esquerdo -->
+
+        <section class="left">
+
+            <img src="logo.png" alt="Sentinela Acadêmica" class="logo">
+
+            <h1>Sentinela Acadêmica</h1>
+
+            <p>
+                Plataforma inteligente para monitoramento preventivo do desempenho
+                acadêmico e apoio à equipe pedagógica.
+            </p>
+
+            <div class="info">
+
+                <div class="item">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Indicadores Acadêmicos</span>
+                </div>
+
+                <div class="item">
+                    <i class="fa-solid fa-user-graduate"></i>
+                    <span>Acompanhamento dos Estudantes</span>
+                </div>
+
+                <div class="item">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <span>Alertas Preventivos</span>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Lado Direito -->
+
+        <section class="right">
+
+            <div class="login-card">
+
+                <h2>Bem-vindo!</h2>
+
+                <p>
+                    Escola Estadual Professor Abel Freire Coelho
+                </p>
+
+                <form id="loginForm">
+
+                    <div class="group">
+
+                        <label>Email</label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Digite seu email"
+                            required>
+
+                    </div>
+
+                    <div class="group">
+
+                        <label>Senha</label>
+
+                        <input
+                            type="password"
+                            id="senha"
+                            placeholder="Digite sua senha"
+                            required>
+
+                    </div>
+
+                    <button class="btn">
+
+                        Entrar
+
+                    </button>
+
+                    <p class="error" id="erro">
+
+                        Email ou senha incorretos.
+
+                    </p>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
