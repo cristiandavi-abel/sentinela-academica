@@ -269,6 +269,11 @@ input{
     transition:var(--transition);
 }
 
+.tab:hover:not(.active){
+    color:var(--primary);
+    background:rgba(37,99,235,.06);
+}
+
 .tab.active{
     background:var(--white);
     color:var(--primary);
@@ -344,15 +349,20 @@ input{
 
 .btn{
 
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+
     width:100%;
 
-    padding:15px;
+    padding:15px 20px;
 
     border:none;
 
-    border-radius:12px;
+    border-radius:14px;
 
-    background:var(--primary);
+    background:linear-gradient(135deg,var(--primary),var(--primary-dark));
 
     color:white;
 
@@ -360,7 +370,11 @@ input{
 
     font-weight:600;
 
+    letter-spacing:.2px;
+
     cursor:pointer;
+
+    box-shadow:0 8px 20px rgba(37,99,235,.25);
 
     transition:var(--transition);
 
@@ -368,9 +382,27 @@ input{
 
 .btn:hover{
 
-    background:var(--primary-dark);
-
     transform:translateY(-2px);
+
+    box-shadow:0 12px 28px rgba(37,99,235,.35);
+
+    filter:brightness(1.05);
+
+}
+
+.btn:active{
+
+    transform:translateY(0);
+
+    box-shadow:0 4px 12px rgba(37,99,235,.25);
+
+}
+
+.btn:focus-visible{
+
+    outline:none;
+
+    box-shadow:0 0 0 4px rgba(37,99,235,.25);
 
 }
 

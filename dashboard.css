@@ -145,6 +145,16 @@ header p{
 
     box-shadow:0 10px 30px rgba(15,23,42,.08);
 
+    transition:transform .25s ease,box-shadow .25s ease;
+
+}
+
+.card-info:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 18px 40px rgba(15,23,42,.14);
+
 }
 
 .card-info i{
@@ -376,6 +386,11 @@ padding:70px 20px 20px;
 
 .btn-sair:hover{
     background:rgba(255,255,255,.16);
+    transform:translateY(-1px);
+}
+
+.btn-sair:active{
+    transform:translateY(0);
 }
 
 .avatar-coord{
@@ -401,11 +416,17 @@ padding:70px 20px 20px;
     height:46px;
     border:none;
     border-radius:12px;
-    background:var(--primary);
+    background:linear-gradient(135deg,var(--primary),var(--primary-dark));
     color:#fff;
     font-size:18px;
     cursor:pointer;
     box-shadow:0 8px 20px rgba(37,99,235,.35);
+    transition:.25s;
+}
+
+.menu-toggle:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 26px rgba(37,99,235,.45);
 }
 
 .aluno-cell{
@@ -475,6 +496,7 @@ padding:70px 20px 20px;
     border-radius:12px;
     font-weight:600;
     font-size:14px;
+    box-shadow:0 4px 12px rgba(15,23,42,.05);
     transition:.25s;
 }
 
@@ -482,16 +504,31 @@ padding:70px 20px 20px;
     background:#EEF4FF;
     border-color:var(--primary);
     color:var(--primary);
+    transform:translateY(-1px);
+    box-shadow:0 8px 18px rgba(37,99,235,.15);
+}
+
+.btn-voltar:active{
+    transform:translateY(0);
 }
 
 .btn-perigo{
-    background:var(--danger);
+    background:linear-gradient(135deg,#EF4444,#DC2626);
     width:auto;
     margin-top:15px;
+    box-shadow:0 8px 20px rgba(239,68,68,.25);
 }
 
 .btn-perigo:hover{
-    background:#DC2626;
+    background:linear-gradient(135deg,#DC2626,#B91C1C);
+    transform:translateY(-2px);
+    box-shadow:0 12px 28px rgba(239,68,68,.35);
+    filter:brightness(1.05);
+}
+
+.btn-perigo:active{
+    transform:translateY(0);
+    box-shadow:0 4px 12px rgba(239,68,68,.25);
 }
 
 .msg-sucesso{

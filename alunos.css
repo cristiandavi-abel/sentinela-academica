@@ -52,17 +52,29 @@
     padding:10px 18px;
     border-radius:10px;
     cursor:pointer;
+    font-weight:600;
+    font-size:14px;
+    box-shadow:0 2px 8px rgba(15,23,42,.04);
     transition:.25s;
 }
 
 .filter:hover{
     background:#EEF4FF;
+    border-color:#BFDBFE;
+    color:var(--primary);
+    transform:translateY(-1px);
+    box-shadow:0 6px 14px rgba(37,99,235,.12);
+}
+
+.filter:active{
+    transform:translateY(0);
 }
 
 .filter.active{
-    background:#2563EB;
+    background:linear-gradient(135deg,var(--primary),var(--primary-dark));
     color:#fff;
-    border-color:#2563EB;
+    border-color:transparent;
+    box-shadow:0 8px 18px rgba(37,99,235,.25);
 }
 
 /* =========================
