@@ -6,12 +6,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Perfil do Aluno</title>
+    <title>Sentinela Acadêmica | Perfil</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="alunos.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 
@@ -19,113 +22,42 @@
 
 <div class="dashboard">
 
-    <aside class="sidebar">
-
-        <div class="logo-area">
-
-            <img src="logo.png">
-
-            <h2>Sentinela Acadêmica</h2>
-
-        </div>
-
-        <nav>
-
-            <a href="dashboard.html">
-                <i class="fa-solid fa-house"></i>
-                <span>Visão Geral</span>
-            </a>
-
-            <a class="active" href="alunos.html">
-                <i class="fa-solid fa-user-graduate"></i>
-                <span>Alunos</span>
-            </a>
-
-            <a href="turmas.html">
-                <i class="fa-solid fa-school"></i>
-                <span>Turmas</span>
-            </a>
-
-            <a href="alertas.html">
-                <i class="fa-solid fa-triangle-exclamation"></i>
-                <span>Alertas</span>
-            </a>
-
-            <a href="relatorios.html">
-                <i class="fa-solid fa-chart-column"></i>
-                <span>Relatórios</span>
-            </a>
-
-        </nav>
-
-    </aside>
+    <aside class="sidebar" id="sidebar"></aside>
 
     <main class="content">
 
-        <h1>Perfil do Aluno</h1>
-
-        <div class="perfil-card">
-
-            <div class="perfil-topo">
-
-                <div class="avatar">
-
-                    JS
-
-                </div>
-
-                <div>
-
-                    <h2>João Pedro Silva</h2>
-
-                    <p>Informática II</p>
-
-                </div>
-
+        <header class="top-bar">
+            <div>
+                <h1>Perfil do Aluno</h1>
+                <p id="subPerfil">Detalhes do estudante.</p>
             </div>
+            <a href="alunos.html" class="btn-voltar" id="btnVoltar"><i class="fa-solid fa-arrow-left"></i> Voltar</a>
+        </header>
 
-            <div class="perfil-grid">
+        <div class="perfil-card" id="perfilCard"></div>
 
-                <div class="info-box">
+        <section class="chart-card" style="margin-top:20px;">
+            <h2>Evolução do IPA</h2>
+            <canvas id="graficoPerfil" height="120"></canvas>
+        </section>
 
-                    <h3>Média Geral</h3>
-
-                    <span>8.7</span>
-
-                </div>
-
-                <div class="info-box">
-
-                    <h3>Frequência</h3>
-
-                    <span>95%</span>
-
-                </div>
-
-                <div class="info-box">
-
-                    <h3>IPA</h3>
-
-                    <span class="green">92</span>
-
-                </div>
-
-            </div>
-
-            <h3 style="margin-top:35px;">Observações</h3>
-
-            <p>
-
-                O estudante apresenta excelente desempenho acadêmico,
-                boa frequência e participação nas atividades escolares.
-
-            </p>
-
-        </div>
+        <section class="table-card" style="margin-top:20px;">
+            <h2 style="padding:22px 22px 0;">Boletim</h2>
+            <table>
+                <thead>
+                    <tr><th>Disciplina</th><th>Nota</th><th>Desempenho</th></tr>
+                </thead>
+                <tbody id="tabelaPerfil"></tbody>
+            </table>
+        </section>
 
     </main>
 
 </div>
+
+<script src="dados.js"></script>
+<script src="app.js"></script>
+<script src="perfil.js"></script>
 
 </body>
 

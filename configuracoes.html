@@ -3,17 +3,15 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentinela Acadêmica | Configurações</title>
 
-<title>Configurações</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
-<link rel="stylesheet" href="style.css">
-
-<link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
 
 </head>
 
@@ -21,53 +19,46 @@
 
 <div class="dashboard">
 
-<aside class="sidebar">
+    <aside class="sidebar" id="sidebar"></aside>
 
-<div class="logo-area">
+    <main class="content">
 
-<img src="logo.png">
+        <header class="top-bar">
+            <div>
+                <h1>Configurações</h1>
+                <p>Dados da escola e do sistema.</p>
+            </div>
+        </header>
 
-<h2>Sentinela Acadêmica</h2>
+        <div class="chart-card">
+            <h2>Dados da Escola</h2>
+            <div class="dados-lista">
+                <p><i class="fa-solid fa-school"></i> <strong>Escola:</strong> Escola Estadual Professor Abel Freire Coelho</p>
+                <p><i class="fa-solid fa-user-shield"></i> <strong>Responsável:</strong> Coordenação Pedagógica</p>
+                <p><i class="fa-solid fa-code-branch"></i> <strong>Versão:</strong> Sentinela Acadêmica 2.0</p>
+                <p><i class="fa-solid fa-database"></i> <strong>Armazenamento:</strong> Local (navegador)</p>
+            </div>
+        </div>
 
-</div>
+        <div class="chart-card" style="margin-top:20px;">
+            <h2>Dados de Demonstração</h2>
+            <p class="obs">O sistema utiliza dados de exemplo salvos no seu navegador. Use o botão abaixo para restaurar os dados originais caso faça alterações.</p>
+            <button class="btn btn-perigo" id="btnResetar"><i class="fa-solid fa-rotate-left"></i> Restaurar dados de exemplo</button>
+            <p class="msg-sucesso" id="msgReset" style="display:none;">Dados restaurados com sucesso!</p>
+        </div>
 
-<nav>
+        <div class="chart-card" style="margin-top:20px;">
+            <h2>Acesso dos Alunos</h2>
+            <p class="obs">Os alunos acessam a plataforma pela tela de login, aba <strong>Aluno</strong>, usando a matrícula e a senha padrão <code>1234</code>.</p>
+        </div>
 
-<a href="dashboard.html"><i class="fa-solid fa-house"></i>Visão Geral</a>
-
-<a href="alunos.html"><i class="fa-solid fa-user-graduate"></i>Alunos</a>
-
-<a href="turmas.html"><i class="fa-solid fa-school"></i>Turmas</a>
-
-<a href="alertas.html"><i class="fa-solid fa-triangle-exclamation"></i>Alertas</a>
-
-<a href="relatorios.html"><i class="fa-solid fa-chart-column"></i>Relatórios</a>
-
-<a class="active" href="configuracoes.html"><i class="fa-solid fa-gear"></i>Configurações</a>
-
-</nav>
-
-</aside>
-
-<main class="content">
-
-<h1>Configurações</h1>
-
-<div class="chart-card">
-
-<h2>Dados da Escola</h2>
-
-<p><strong>Escola:</strong> Escola Estadual Professor Abel Freire Coelho</p>
-
-<p><strong>Responsável:</strong> Coordenação Pedagógica</p>
-
-<p><strong>Versão:</strong> Sentinela Acadêmica 1.0</p>
+    </main>
 
 </div>
 
-</main>
-
-</div>
+<script src="dados.js"></script>
+<script src="app.js"></script>
+<script src="configuracoes.js"></script>
 
 </body>
 

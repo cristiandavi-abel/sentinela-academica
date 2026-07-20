@@ -1,0 +1,100 @@
+/* ==========================================
+   PORTAL DO ALUNO
+========================================= */
+
+.avatar-grande{
+    width:64px;
+    height:64px;
+    border-radius:18px;
+    background:linear-gradient(135deg,#2563EB,#1E3A8A);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    font-weight:700;
+    box-shadow:0 10px 25px rgba(37,99,235,.35);
+}
+
+.status-visual{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:18px;
+    padding:10px 0;
+}
+
+.anel{
+    --valor:0;
+    --cor:#2563EB;
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    background:
+        radial-gradient(closest-side, #fff 78%, transparent 79% 100%),
+        conic-gradient(var(--cor) calc(var(--valor) * 1%), #E2E8F0 0);
+    position:relative;
+}
+
+.anel-valor{
+    font-size:38px;
+    font-weight:800;
+    color:var(--cor);
+    line-height:1;
+}
+
+.anel-label{
+    font-size:13px;
+    color:#64748B;
+    font-weight:600;
+    margin-top:4px;
+}
+
+.status-msg{
+    font-weight:600;
+    text-align:center;
+    padding:10px 16px;
+    border-radius:12px;
+}
+
+.status-msg.green{ background:#DCFCE7; color:#15803D; }
+.status-msg.yellow{ background:#FEF3C7; color:#B45309; }
+.status-msg.red{ background:#FEE2E2; color:#DC2626; }
+
+.status-turma{
+    color:#64748B;
+    font-size:14px;
+}
+
+.status-turma i{ margin-right:6px; color:#2563EB; }
+
+.status-text.green{ color:#15803D; }
+.status-text.yellow{ color:#B45309; }
+.status-text.red{ color:#DC2626; }
+
+.observacoes{
+    color:#475569;
+    line-height:1.7;
+}
+
+.barra{
+    width:100%;
+    height:10px;
+    background:#E2E8F0;
+    border-radius:999px;
+    overflow:hidden;
+}
+
+.barra-preench{
+    display:block;
+    height:100%;
+    border-radius:999px;
+}
+
+.barra-preench.green{ background:#22C55E; }
+.barra-preench.yellow{ background:#F59E0B; }
+.barra-preench.red{ background:#EF4444; }

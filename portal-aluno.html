@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sentinela Acadêmica | Área do Aluno</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="portal-aluno.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <main class="content">
+
+        <header class="top-bar">
+            <div>
+                <h1 id="saudacao">Olá, Aluno!</h1>
+                <p>Acompanhe seu desempenho escolar de forma simples e clara.</p>
+            </div>
+            <div class="avatar-grande" id="avatarAluno">AL</div>
+        </header>
+
+        <section class="cards" id="cardsAluno"></section>
+
+        <section class="dashboard-grid">
+
+            <div class="chart-card">
+                <h2>Sua Evolução</h2>
+                <canvas id="graficoEvolucao"></canvas>
+            </div>
+
+            <div class="alert-card" id="cardStatus">
+                <h2>Seu Status</h2>
+                <div class="status-visual" id="statusVisual"></div>
+            </div>
+
+        </section>
+
+        <section class="chart-card" id="boletim" style="margin-top:20px;">
+            <h2>Notas por Disciplina</h2>
+            <canvas id="graficoNotas" height="120"></canvas>
+        </section>
+
+        <section class="table-card" id="frequencia" style="margin-top:20px;">
+            <h2 style="padding:22px 22px 0;">Boletim Detalhado</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Disciplina</th>
+                        <th>Nota</th>
+                        <th>Desempenho</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelaNotas"></tbody>
+            </table>
+        </section>
+
+        <section class="chart-card" style="margin-top:20px;">
+            <h2>Observações da Coordenação</h2>
+            <p id="observacoesAluno" class="observacoes"></p>
+        </section>
+
+    </main>
+
+</div>
+
+<script src="dados.js"></script>
+<script src="app.js"></script>
+<script src="portal-aluno.js"></script>
+
+</body>
+
+</html>

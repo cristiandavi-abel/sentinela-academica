@@ -3,7 +3,7 @@
 > Plataforma inteligente para identificação preventiva de possíveis sinais de burnout em estudantes por meio da análise de indicadores acadêmicos.
 
 ![Status](https://img.shields.io/badge/status-Em%20Desenvolvimento-blue)
-![Versão](https://img.shields.io/badge/versão-1.0-green)
+![Versão](https://img.shields.io/badge/versão-2.0-green)
 ![Licença](https://img.shields.io/badge/licença-MIT-lightgrey)
 
 ---
@@ -30,13 +30,23 @@ A plataforma foi criada com o objetivo de auxiliar a equipe pedagógica na ident
 
 ## ✨ Funcionalidades
 
-- 🔐 Login da coordenação
-- 📊 Dashboard com indicadores gerais
-- 👨‍🎓 Gerenciamento de alunos
-- 🏫 Visualização de turmas
-- ⚠️ Alertas preventivos
-- 📈 Relatórios e gráficos
-- 👤 Perfil individual dos estudantes
+- 🔐 Login com dois perfis (Coordenação e Aluno)
+- 🧑‍🎓 **Portal do Aluno**: o estudante acessa com matrícula e senha e visualiza seu desempenho (média, frequência, IPA, gráficos de evolução, notas por disciplina e observações)
+- 📊 Dashboard com indicadores gerais dinâmicos
+- 👨‍🎓 Gerenciamento de alunos com busca e filtros funcionais
+- 🏫 Visualização de turmas com agregação automática
+- ⚠️ Alertas preventivos ordenados por risco
+- 📈 Relatórios e gráficos (distribuição, IPA por turma, desempenho por disciplina)
+- 👤 Perfil individual dos estudantes (compartilhado entre coordenação e aluno)
+- 💾 Dados de exemplo persistidos no navegador (localStorage) com opção de restauração
+- 📱 Interface responsiva com menu off-canvas no mobile
+
+---
+
+## 🔑 Acesso de Demonstração
+
+- **Coordenação:** `coordenador@abel.edu.br` / `123456`
+- **Aluno:** matrícula (ex.: `2024001`) / senha padrão `1234`
 
 ---
 
@@ -44,8 +54,9 @@ A plataforma foi criada com o objetivo de auxiliar a equipe pedagógica na ident
 
 - HTML5
 - CSS3
-- JavaScript
+- JavaScript (vanilla)
 - Chart.js
+- localStorage (persistência client-side)
 - Git
 - GitHub
 

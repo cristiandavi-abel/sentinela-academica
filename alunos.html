@@ -19,50 +19,7 @@
 
 <div class="dashboard">
 
-    <!-- Sidebar -->
-
-    <aside class="sidebar">
-
-        <div class="logo-area">
-            <img src="logo.png">
-            <h2>Sentinela Acadêmica</h2>
-        </div>
-
-        <nav>
-
-            <a href="dashboard.html">
-                <i class="fa-solid fa-house"></i>
-                <span>Visão Geral</span>
-            </a>
-
-            <a class="active" href="alunos.html">
-                <i class="fa-solid fa-user-graduate"></i>
-                <span>Alunos</span>
-            </a>
-
-            <a href="turmas.html">
-                <i class="fa-solid fa-school"></i>
-                <span>Turmas</span>
-            </a>
-
-            <a href="alertas.html">
-                <i class="fa-solid fa-triangle-exclamation"></i>
-                <span>Alertas</span>
-            </a>
-
-            <a href="relatorios.html">
-                <i class="fa-solid fa-chart-column"></i>
-                <span>Relatórios</span>
-            </a>
-
-            <a href="configuracoes.html">
-                <i class="fa-solid fa-gear"></i>
-                <span>Configurações</span>
-            </a>
-
-        </nav>
-
-    </aside>
+    <aside class="sidebar" id="sidebar"></aside>
 
     <main class="content">
 
@@ -70,30 +27,22 @@
 
             <div>
                 <h1>Alunos</h1>
-                <p>Gerenciamento dos estudantes.</p>
+                <p>Gerenciamento e acompanhamento dos estudantes.</p>
             </div>
 
             <div class="search-box">
-
                 <i class="fa-solid fa-magnifying-glass"></i>
-
-                <input
-                    type="text"
-                    id="pesquisa"
-                    placeholder="Pesquisar aluno...">
-
+                <input type="text" id="pesquisa" placeholder="Pesquisar por nome ou turma...">
             </div>
 
         </header>
 
-        <div class="filters">
-
-            <button class="filter active">Todos</button>
-            <button class="filter">1º Ano</button>
-            <button class="filter">2º Ano</button>
-            <button class="filter">3º Ano</button>
-            <button class="filter">Informática</button>
-
+        <div class="filters" id="filtros">
+            <button class="filter active" data-filtro="todos">Todos</button>
+            <button class="filter" data-filtro="verde">Estáveis</button>
+            <button class="filter" data-filtro="amarelo">Atenção</button>
+            <button class="filter" data-filtro="vermelho">Alto Risco</button>
+            <button class="filter" data-filtro="informatica">Informática</button>
         </div>
 
         <div class="table-card">
@@ -103,79 +52,23 @@
                 <thead>
 
                     <tr>
-
                         <th>Aluno</th>
                         <th>Turma</th>
                         <th>Média</th>
                         <th>Frequência</th>
                         <th>IPA</th>
                         <th></th>
-
                     </tr>
 
                 </thead>
 
-                <tbody id="tabelaAlunos">
-
-                    <tr>
-
-                        <td>João Pedro Silva</td>
-                        <td>Informática II</td>
-                        <td>8.7</td>
-                        <td>95%</td>
-                        <td><span class="status green">92</span></td>
-
-                        <td>
-
-                            <a href="perfil.html">
-
-                                <i class="fa-solid fa-eye"></i>
-
-                            </a>
-
-                        </td>
-
-                    </tr>
-
-                    <tr>
-
-                        <td>Maria Clara Souza</td>
-                        <td>3º Ano A</td>
-                        <td>7.3</td>
-                        <td>86%</td>
-                        <td><span class="status yellow">68</span></td>
-
-                        <td><a href="perfil.html"><i class="fa-solid fa-eye"></i></a></td>
-
-                    </tr>
-
-                    <tr>
-
-                        <td>Lucas Henrique</td>
-                        <td>2º Ano B</td>
-                        <td>6.2</td>
-                        <td>75%</td>
-                        <td><span class="status red">49</span></td>
-
-                        <td><a href="perfil.html"><i class="fa-solid fa-eye"></i></a></td>
-
-                    </tr>
-
-                    <tr>
-
-                        <td>Ana Júlia Lima</td>
-                        <td>Informática I</td>
-                        <td>8.1</td>
-                        <td>91%</td>
-                        <td><span class="status green">88</span></td>
-
-                        <td><a href="perfil.html"><i class="fa-solid fa-eye"></i></a></td>
-
-                    </tr>
-
-                </tbody>
+                <tbody id="tabelaAlunos"></tbody>
 
             </table>
+
+            <p class="sem-resultado" id="semResultado" style="display:none;">
+                Nenhum aluno encontrado.
+            </p>
 
         </div>
 
@@ -183,6 +76,8 @@
 
 </div>
 
+<script src="dados.js"></script>
+<script src="app.js"></script>
 <script src="alunos.js"></script>
 
 </body>

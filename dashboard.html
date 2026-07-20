@@ -23,131 +23,26 @@
 
     <!-- Sidebar -->
 
-    <aside class="sidebar">
-
-        <div class="logo-area">
-
-            <img src="logo.png" alt="Logo">
-
-            <h2>Sentinela Acadêmica</h2>
-
-        </div>
-
-        <nav>
-
-            <a class="active" href="dashboard.html">
-                <i class="fa-solid fa-house"></i>
-                <span>Visão Geral</span>
-            </a>
-
-            <a href="alunos.html">
-                <i class="fa-solid fa-user-graduate"></i>
-                <span>Alunos</span>
-            </a>
-
-            <a href="turmas.html">
-                <i class="fa-solid fa-school"></i>
-                <span>Turmas</span>
-            </a>
-
-            <a href="alertas.html">
-                <i class="fa-solid fa-triangle-exclamation"></i>
-                <span>Alertas</span>
-            </a>
-
-            <a href="relatorios.html">
-                <i class="fa-solid fa-chart-column"></i>
-                <span>Relatórios</span>
-            </a>
-
-            <a href="configuracoes.html">
-                <i class="fa-solid fa-gear"></i>
-                <span>Configurações</span>
-            </a>
-
-        </nav>
-
-    </aside>
+    <aside class="sidebar" id="sidebar"></aside>
 
     <!-- Conteúdo -->
 
     <main class="content">
 
-        <header>
+        <header class="top-bar">
 
             <div>
-
                 <h1>Visão Geral</h1>
-
-                <p>
-                    Bem-vinda, Coordenação Pedagógica.
-                </p>
-
+                <p>Bem-vinda, Coordenação Pedagógica.</p>
             </div>
+
+            <div class="avatar-coord"><i class="fa-solid fa-user-shield"></i></div>
 
         </header>
 
         <!-- Cards -->
 
-        <section class="cards">
-
-            <div class="card-info">
-
-                <i class="fa-solid fa-user-graduate"></i>
-
-                <div>
-
-                    <h3>286</h3>
-
-                    <span>Alunos</span>
-
-                </div>
-
-            </div>
-
-            <div class="card-info">
-
-                <i class="fa-solid fa-school"></i>
-
-                <div>
-
-                    <h3>9</h3>
-
-                    <span>Turmas</span>
-
-                </div>
-
-            </div>
-
-            <div class="card-info">
-
-                <i class="fa-solid fa-triangle-exclamation"></i>
-
-                <div>
-
-                    <h3>18</h3>
-
-                    <span>Alertas</span>
-
-                </div>
-
-            </div>
-
-            <div class="card-info">
-
-                <i class="fa-solid fa-chart-line"></i>
-
-                <div>
-
-                    <h3>87%</h3>
-
-                    <span>Frequência Média</span>
-
-                </div>
-
-            </div>
-
-        </section>
+        <section class="cards" id="cardsResumo"></section>
 
         <!-- Conteúdo inferior -->
 
@@ -156,7 +51,6 @@
             <div class="chart-card">
 
                 <h2>Evolução dos Indicadores</h2>
-
                 <canvas id="grafico"></canvas>
 
             </div>
@@ -164,30 +58,7 @@
             <div class="alert-card">
 
                 <h2>Alunos em Atenção</h2>
-
-                <ul>
-
-                    <li>
-                        <strong>Maria Clara</strong>
-                        <span>IPA 48</span>
-                    </li>
-
-                    <li>
-                        <strong>João Pedro</strong>
-                        <span>IPA 55</span>
-                    </li>
-
-                    <li>
-                        <strong>Ana Júlia</strong>
-                        <span>IPA 59</span>
-                    </li>
-
-                    <li>
-                        <strong>Lucas Henrique</strong>
-                        <span>IPA 61</span>
-                    </li>
-
-                </ul>
+                <ul id="listaAtencao"></ul>
 
             </div>
 
@@ -197,7 +68,10 @@
 
 </div>
 
+<script src="dados.js"></script>
+<script src="app.js"></script>
 <script src="dashboard.js"></script>
 
 </body>
+
 </html>

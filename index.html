@@ -48,6 +48,11 @@
                     <span>Alertas Preventivos</span>
                 </div>
 
+                <div class="item">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                    <span>Acesso do Aluno ao Desempenho</span>
+                </div>
+
             </div>
 
         </section>
@@ -58,49 +63,46 @@
 
             <div class="login-card">
 
+                <div class="tabs">
+                    <button type="button" class="tab active" data-tipo="coordenacao">Coordenação</button>
+                    <button type="button" class="tab" data-tipo="aluno">Aluno</button>
+                </div>
+
                 <h2>Bem-vindo!</h2>
 
-                <p>
+                <p id="subtitulo">
                     Escola Estadual Professor Abel Freire Coelho
                 </p>
 
                 <form id="loginForm">
 
                     <div class="group">
-
-                        <label>Email</label>
-
+                        <label id="labelUsuario">Email</label>
                         <input
-                            type="email"
-                            id="email"
+                            type="text"
+                            id="usuario"
                             placeholder="Digite seu email"
                             required>
-
                     </div>
 
                     <div class="group">
-
                         <label>Senha</label>
-
                         <input
                             type="password"
                             id="senha"
                             placeholder="Digite sua senha"
                             required>
-
                     </div>
 
-                    <button class="btn">
+                    <p class="dica" id="dicaLogin">
+                        Coordenação: coordenador@abel.edu.br / 123456
+                    </p>
 
+                    <button class="btn" type="submit">
                         Entrar
-
                     </button>
 
-                    <p class="error" id="erro">
-
-                        Email ou senha incorretos.
-
-                    </p>
+                    <p class="error" id="erro"></p>
 
                 </form>
 
@@ -110,6 +112,7 @@
 
     </main>
 
+    <script src="dados.js"></script>
     <script src="script.js"></script>
 
 </body>

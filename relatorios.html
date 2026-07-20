@@ -3,17 +3,17 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentinela Acadêmica | Relatórios</title>
 
-<title>Relatórios</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
 
-<link rel="stylesheet" href="style.css">
-
-<link rel="stylesheet" href="dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 
@@ -21,81 +21,45 @@
 
 <div class="dashboard">
 
-<aside class="sidebar">
+    <aside class="sidebar" id="sidebar"></aside>
 
-<div class="logo-area">
+    <main class="content">
 
-<img src="logo.png">
+        <header class="top-bar">
+            <div>
+                <h1>Relatórios</h1>
+                <p>Indicadores gerais do período letivo.</p>
+            </div>
+        </header>
 
-<h2>Sentinela Acadêmica</h2>
+        <section class="cards" id="cardsRelatorio"></section>
 
-</div>
+        <section class="dashboard-grid">
 
-<nav>
+            <div class="chart-card">
+                <h2>Distribuição por Situação</h2>
+                <canvas id="graficoDistribuicao"></canvas>
+            </div>
 
-<a href="dashboard.html"><i class="fa-solid fa-house"></i>Visão Geral</a>
+            <div class="chart-card">
+                <h2>IPA Médio por Turma</h2>
+                <canvas id="graficoTurmas"></canvas>
+            </div>
 
-<a href="alunos.html"><i class="fa-solid fa-user-graduate"></i>Alunos</a>
+        </section>
 
-<a href="turmas.html"><i class="fa-solid fa-school"></i>Turmas</a>
+        <section class="chart-card" style="margin-top:20px;">
+            <h2>Desempenho por Disciplina</h2>
+            <canvas id="graficoDisciplinas" height="120"></canvas>
+        </section>
 
-<a href="alertas.html"><i class="fa-solid fa-triangle-exclamation"></i>Alertas</a>
-
-<a class="active" href="relatorios.html"><i class="fa-solid fa-chart-column"></i>Relatórios</a>
-
-<a href="configuracoes.html"><i class="fa-solid fa-gear"></i>Configurações</a>
-
-</nav>
-
-</aside>
-
-<main class="content">
-
-<h1>Relatórios</h1>
-
-<div class="cards">
-
-<div class="card-info">
-
-<i class="fa-solid fa-file"></i>
-
-<div>
-
-<h3>12</h3>
-
-<span>Relatórios Gerados</span>
+    </main>
 
 </div>
 
-</div>
-
-<div class="card-info">
-
-<i class="fa-solid fa-chart-line"></i>
-
-<div>
-
-<h3>87%</h3>
-
-<span>Desempenho Médio</span>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="chart-card">
-
-<h2>Resumo Geral</h2>
-
-<p>Os relatórios poderão ser exportados em PDF em uma futura versão do sistema.</p>
-
-</div>
-
-</main>
-
-</div>
+<script src="dados.js"></script>
+<script src="app.js"></script>
+<script src="relatorios.js"></script>
 
 </body>
 

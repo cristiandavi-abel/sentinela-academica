@@ -3,16 +3,16 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Alertas</title>
+    <title>Sentinela Acadêmica | Alertas</title>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="dashboard.css">
-<link rel="stylesheet" href="alunos.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="alunos.css">
 
 </head>
 
@@ -20,102 +20,48 @@
 
 <div class="dashboard">
 
-<aside class="sidebar">
+    <aside class="sidebar" id="sidebar"></aside>
 
-<div class="logo-area">
+    <main class="content">
 
-<img src="logo.png">
+        <header class="top-bar">
+            <div>
+                <h1>Alertas Preventivos</h1>
+                <p>Estudantes que exigem atenção da coordenação.</p>
+            </div>
+        </header>
 
-<h2>Sentinela Acadêmica</h2>
+        <div class="table-card">
 
-</div>
+            <table>
 
-<nav>
+                <thead>
+                    <tr>
+                        <th>Aluno</th>
+                        <th>Turma</th>
+                        <th>IPA</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+                </thead>
 
-<a href="dashboard.html"><i class="fa-solid fa-house"></i><span>Visão Geral</span></a>
+                <tbody id="tabelaAlertas"></tbody>
 
-<a href="alunos.html"><i class="fa-solid fa-user-graduate"></i><span>Alunos</span></a>
+            </table>
 
-<a href="turmas.html"><i class="fa-solid fa-school"></i><span>Turmas</span></a>
+            <p class="sem-resultado" id="semAlertas" style="display:none;">
+                Nenhum aluno em situação de alerta. 🎉
+            </p>
 
-<a class="active" href="alertas.html"><i class="fa-solid fa-triangle-exclamation"></i><span>Alertas</span></a>
+        </div>
 
-<a href="relatorios.html"><i class="fa-solid fa-chart-column"></i><span>Relatórios</span></a>
-
-<a href="configuracoes.html"><i class="fa-solid fa-gear"></i><span>Configurações</span></a>
-
-</nav>
-
-</aside>
-
-<main class="content">
-
-<h1>Alertas Preventivos</h1>
-
-<div class="table-card">
-
-<table>
-
-<thead>
-
-<tr>
-
-<th>Aluno</th>
-<th>Turma</th>
-<th>IPA</th>
-<th>Status</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<td>Lucas Henrique</td>
-
-<td>2º Ano B</td>
-
-<td><span class="status red">49</span></td>
-
-<td>Alto Risco</td>
-
-</tr>
-
-<tr>
-
-<td>Maria Clara Souza</td>
-
-<td>3º Ano A</td>
-
-<td><span class="status yellow">68</span></td>
-
-<td>Atenção</td>
-
-</tr>
-
-<tr>
-
-<td>João Pedro Silva</td>
-
-<td>Informática II</td>
-
-<td><span class="status green">92</span></td>
-
-<td>Estável</td>
-
-</tr>
-
-</tbody>
-
-</table>
+    </main>
 
 </div>
 
-</main>
-
-</div>
+<script src="dados.js"></script>
+<script src="app.js"></script>
+<script src="alertas.js"></script>
 
 </body>
 

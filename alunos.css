@@ -164,3 +164,80 @@ table{
 }
 
 }
+
+/* =========================
+   PERFIL DO ALUNO
+========================= */
+
+.perfil-card{
+    background:#fff;
+    border-radius:18px;
+    padding:30px;
+    box-shadow:0 10px 30px rgba(15,23,42,.08);
+}
+
+.perfil-topo{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    margin-bottom:25px;
+}
+
+.perfil-topo .avatar{
+    width:80px;
+    height:80px;
+    border-radius:20px;
+    background:linear-gradient(135deg,#2563EB,#1E3A8A);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    font-weight:700;
+    flex-shrink:0;
+    box-shadow:0 10px 25px rgba(37,99,235,.30);
+}
+
+.perfil-topo h2{
+    font-size:26px;
+    margin-bottom:4px;
+}
+
+.perfil-topo p{
+    color:var(--text-light);
+    margin-bottom:10px;
+}
+
+.perfil-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    margin-top:10px;
+}
+
+.info-box{
+    background:#F8FAFC;
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:18px;
+}
+
+.info-box h3{
+    font-size:13px;
+    color:var(--text-light);
+    font-weight:600;
+    margin-bottom:8px;
+}
+
+.info-box span{
+    font-size:26px;
+    font-weight:800;
+}
+
+.status-text.green{ color:#15803D; }
+.status-text.yellow{ color:#B45309; }
+.status-text.red{ color:#DC2626; }
+
+@media(max-width:600px){
+    .perfil-grid{ grid-template-columns:1fr; }
+}
