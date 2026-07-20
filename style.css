@@ -142,7 +142,10 @@ input{
 
 .logo{
 
-    width:90px;
+    width:110px;
+    height:auto;
+    display:block;
+    align-self:flex-start;
 
     margin-bottom:25px;
 
