@@ -35,7 +35,7 @@ const App = {
 
         return `
             <div class="logo-area">
-                <img src="logo.png" alt="Logo">
+                <img src="logo.svg" alt="Logo">
                 <h2>Sentinela Acadêmica</h2>
             </div>
             <nav>${itens}</nav>
