@@ -49,9 +49,9 @@ if (sessao) {
                 <span class="anel-label">IPA</span>
             </div>
             <p class="status-msg ${status.classe}">
-                ${status.texto === "Estável"
+                ${status.classe === "green"
                     ? "Você está indo muito bem! Continue assim."
-                    : status.texto === "Atenção"
+                    : status.classe === "yellow"
                         ? "Atenção: vale revisar sua rotina de estudos."
                         : "Alerta: procure a coordenação para apoio."}
             </p>

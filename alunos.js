@@ -23,9 +23,9 @@ function render() {
         const casa = nome.includes(texto) || turma.includes(texto);
 
         let passaFiltro = true;
-        if (filtroAtivo === "verde") passaFiltro = a.ipa >= 80;
-        else if (filtroAtivo === "amarelo") passaFiltro = a.ipa >= 60 && a.ipa < 80;
-        else if (filtroAtivo === "vermelho") passaFiltro = a.ipa < 60;
+        if (filtroAtivo === "verde") passaFiltro = a.ipa < 40;
+        else if (filtroAtivo === "amarelo") passaFiltro = a.ipa >= 40 && a.ipa < 70;
+        else if (filtroAtivo === "vermelho") passaFiltro = a.ipa >= 70;
         else if (filtroAtivo === "informatica") passaFiltro = a.curso === "Informática";
 
         return casa && passaFiltro;

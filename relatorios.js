@@ -9,9 +9,9 @@ App.initSidebar("relatorios");
 const alunos = getAlunos();
 const total = alunos.length;
 
-const verde = alunos.filter(a => a.ipa >= 80).length;
-const amarelo = alunos.filter(a => a.ipa >= 60 && a.ipa < 80).length;
-const vermelho = alunos.filter(a => a.ipa < 60).length;
+const verde = alunos.filter(a => a.ipa < 40).length;
+const amarelo = alunos.filter(a => a.ipa >= 40 && a.ipa < 70).length;
+const vermelho = alunos.filter(a => a.ipa >= 70).length;
 
 const mediaGeral = (alunos.reduce((s, a) => s + a.media, 0) / total).toFixed(1);
 const freqMedia = Math.round(alunos.reduce((s, a) => s + a.frequencia, 0) / total);
@@ -31,7 +31,7 @@ document.getElementById("cardsRelatorio").innerHTML = `
     </div>
     <div class="card-info">
         <i class="fa-solid fa-triangle-exclamation"></i>
-        <div><h3>${vermelho}</h3><span>Alto Risco</span></div>
+        <div><h3>${vermelho}</h3><span>Alta Necessidade</span></div>
     </div>
 `;
 
@@ -39,7 +39,7 @@ document.getElementById("cardsRelatorio").innerHTML = `
 new Chart(document.getElementById("graficoDistribuicao"), {
     type: "doughnut",
     data: {
-        labels: ["Estáveis", "Atenção", "Alto Risco"],
+        labels: ["Baixa Necessidade", "Necessidade Moderada", "Alta Necessidade"],
         datasets: [{
             data: [verde, amarelo, vermelho],
             backgroundColor: ["#14B8A6", "#F59E0B", "#EF4444"],

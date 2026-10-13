@@ -11,7 +11,7 @@ const alunos = getAlunos();
 // Resumo geral
 const total = alunos.length;
 const turmasUnicas = new Set(alunos.map(a => a.turma)).size;
-const emAtencao = alunos.filter(a => a.ipa < 80).length;
+const emAtencao = alunos.filter(a => a.ipa >= 70).length;
 const freqMedia = Math.round(alunos.reduce((s, a) => s + a.frequencia, 0) / total);
 
 document.getElementById("cardsResumo").innerHTML = `
@@ -25,7 +25,7 @@ document.getElementById("cardsResumo").innerHTML = `
     </div>
     <div class="card-info">
         <i class="fa-solid fa-triangle-exclamation"></i>
-        <div><h3>${emAtencao}</h3><span>Em Atenção</span></div>
+        <div><h3>${emAtencao}</h3><span>Alta Necessidade</span></div>
     </div>
     <div class="card-info">
         <i class="fa-solid fa-chart-line"></i>
@@ -33,10 +33,10 @@ document.getElementById("cardsResumo").innerHTML = `
     </div>
 `;
 
-// Alunos em atenção (IPA < 80), ordenados
+// Alunos em alta necessidade de acompanhamento (IPA >= 70), ordenados
 const atencao = alunos
-    .filter(a => a.ipa < 80)
-    .sort((a, b) => a.ipa - b.ipa);
+    .filter(a => a.ipa >= 70)
+    .sort((a, b) => b.ipa - a.ipa);
 
 document.getElementById("listaAtencao").innerHTML = atencao.map(a => {
     const st = statusIPA(a.ipa);
@@ -93,7 +93,7 @@ new Chart(ctx, {
         maintainAspectRatio: false,
         plugins: { legend: { position: "bottom" } },
         scales: {
-            y: { beginAtZero: false, min: 60, max: 100, grid: { color: "#E2E8F0" } },
+            y: { beginAtZero: true, min: 0, max: 100, grid: { color: "#E2E8F0" } },
             x: { grid: { display: false } }
         }
     }

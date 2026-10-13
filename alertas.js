@@ -9,8 +9,8 @@ App.initSidebar("alertas");
 const alunos = getAlunos();
 
 const alertas = alunos
-    .filter(a => a.ipa < 80)
-    .sort((a, b) => a.ipa - b.ipa);
+    .filter(a => a.ipa >= 70)
+    .sort((a, b) => b.ipa - a.ipa);
 
 const tabela = document.getElementById("tabelaAlertas");
 const vazio = document.getElementById("semAlertas");
