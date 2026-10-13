@@ -63,17 +63,24 @@
 
             <div class="login-card">
 
-                <div class="tabs">
+                <div class="tabs" id="tabsPerfil">
                     <button type="button" class="tab active" data-tipo="coordenacao">Coordenação</button>
                     <button type="button" class="tab" data-tipo="aluno">Aluno</button>
                 </div>
 
-                <h2>Bem-vindo!</h2>
+                <h2 id="tituloAcesso">Bem-vindo!</h2>
 
                 <p id="subtitulo">
                     Escola Estadual Professor Abel Freire Coelho
                 </p>
 
+                <!-- Alternar entre entrar e cadastrar -->
+                <div class="auth-modes">
+                    <button type="button" class="mode-btn active" id="modoEntrar" data-modo="login">Entrar</button>
+                    <button type="button" class="mode-btn" id="modoCadastrar" data-modo="cadastro">Cadastrar</button>
+                </div>
+
+                <!-- Formulário de login -->
                 <form id="loginForm">
 
                     <div class="group">
@@ -102,7 +109,68 @@
                         Entrar
                     </button>
 
-                    <p class="error" id="erro"></p>
+                    <p class="error" id="erroLogin"></p>
+
+                </form>
+
+                <!-- Formulário de cadastro -->
+                <form id="cadastroForm" style="display:none;">
+
+                    <div class="group">
+                        <label>Nome completo</label>
+                        <input
+                            type="text"
+                            id="regNome"
+                            placeholder="Digite seu nome completo"
+                            required>
+                    </div>
+
+                    <div class="group" id="groupRegEmail">
+                        <label>Email</label>
+                        <input
+                            type="email"
+                            id="regEmail"
+                            placeholder="Digite seu email"
+                            required>
+                    </div>
+
+                    <div class="group" id="groupRegTurma">
+                        <label>Turma (opcional)</label>
+                        <input
+                            type="text"
+                            id="regTurma"
+                            placeholder="Ex.: 3º Ano A">
+                    </div>
+
+                    <div class="group">
+                        <label>Senha</label>
+                        <input
+                            type="password"
+                            id="regSenha"
+                            placeholder="Crie uma senha (mín. 4 caracteres)"
+                            required
+                            minlength="4">
+                    </div>
+
+                    <div class="group">
+                        <label>Confirmar senha</label>
+                        <input
+                            type="password"
+                            id="regConfirmar"
+                            placeholder="Repita a senha"
+                            required>
+                    </div>
+
+                    <p class="dica" id="dicaCadastro">
+                        Informe seus dados para criar uma conta de Coordenação.
+                    </p>
+
+                    <button class="btn" type="submit">
+                        Criar conta
+                    </button>
+
+                    <p class="error" id="erroCadastro"></p>
+                    <p class="msg-sucesso" id="sucessoCadastro" style="display:none;"></p>
 
                 </form>
 
@@ -117,4 +185,4 @@
 
 </body>
 
-</html>
+</html>

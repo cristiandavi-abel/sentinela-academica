@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentinela Acadêmica | Chat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <main class="content">
+
+        <header class="top-bar">
+            <div>
+                <h1 id="tituloChat">Chat da Turma</h1>
+                <p id="subtituloChat">Converse com colegas e coordenação.</p>
+            </div>
+            <div class="avatar-coord"><i class="fa-solid fa-comments"></i></div>
+        </header>
+
+        <div class="chat-shell">
+
+            <div class="chat-sidebar" id="chatSidebar" style="display:none;">
+                <h3>Turmas</h3>
+                <div id="listaTurmasChat"></div>
+            </div>
+
+            <div class="chat-main">
+                <div class="chat-messages" id="chatMessages"></div>
+                <div class="chat-input-row">
+                    <input type="text" id="chatInput" placeholder="Digite uma mensagem...">
+                    <button id="chatEnviar"><i class="fa-solid fa-paper-plane"></i> Enviar</button>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="dados.js"></script>
+<script src="app.js"></script>
+<script src="chat.js"></script>
+
+</body>
+
+</html>

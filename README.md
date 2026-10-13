@@ -30,7 +30,7 @@ A plataforma foi criada com o objetivo de auxiliar a equipe pedagógica na ident
 
 ## ✨ Funcionalidades
 
-- 🔐 Login com dois perfis (Coordenação e Aluno)
+- 🔐 Login e cadastro de contas com dois perfis (Coordenação e Aluno)
 - 🧑‍🎓 **Portal do Aluno**: o estudante acessa com matrícula e senha e visualiza seu desempenho (média, frequência, IPA, gráficos de evolução, notas por disciplina e observações)
 - 📊 Dashboard com indicadores gerais dinâmicos
 - 👨‍🎓 Gerenciamento de alunos com busca e filtros funcionais
@@ -40,13 +40,16 @@ A plataforma foi criada com o objetivo de auxiliar a equipe pedagógica na ident
 - 👤 Perfil individual dos estudantes (compartilhado entre coordenação e aluno)
 - 💾 Dados de exemplo persistidos no navegador (localStorage) com opção de restauração
 - 📱 Interface responsiva com menu off-canvas no mobile
+- 💬 Chat por turma para alunos e coordenação
+- 📢 Sistema de avisos com notificações
+- 👥 Gestão de contas e acessos pela coordenação
 
 ---
 
 ## 🔑 Acesso de Demonstração
 
-- **Coordenação:** `coordenador@abel.edu.br` / `123456`
-- **Aluno:** matrícula (ex.: `2024001`) / senha padrão `1234`
+- **Coordenação:** `coordenador@abel.edu.br` / `123456` (ou crie uma nova conta na tela de login)
+- **Aluno:** matrícula (ex.: `2024001`) / senha padrão `1234` (ou cadastre-se na tela de login; a matrícula é gerada automaticamente)
 
 ---
 
@@ -80,4 +83,4 @@ Escola Estadual Professor Abel Freire Coelho
 
 ## 📄 Licença
 
-Este projeto foi desenvolvido exclusivamente para fins educacionais e de apresentação na Feira de Ciências.
+Este projeto foi desenvolvido exclusivamente para fins educacionais e de apresentação na Feira de Ciências.

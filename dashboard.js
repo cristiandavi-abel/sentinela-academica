@@ -79,12 +79,12 @@ new Chart(ctx, {
             {
                 label: "Média Geral",
                 data: mediaMedio,
-                borderColor: "#22C55E",
-                backgroundColor: "rgba(34,197,94,.10)",
+                borderColor: "#14B8A6",
+                backgroundColor: "rgba(20,184,166,.10)",
                 fill: true,
                 tension: .4,
                 pointRadius: 4,
-                pointBackgroundColor: "#22C55E"
+                pointBackgroundColor: "#14B8A6"
             }
         ]
     },

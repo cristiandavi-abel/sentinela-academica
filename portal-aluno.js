@@ -42,7 +42,7 @@ if (sessao) {
         `;
 
         // Status visual
-        const corStatus = status.classe === "green" ? "#22C55E" : status.classe === "yellow" ? "#F59E0B" : "#EF4444";
+        const corStatus = status.classe === "green" ? "#14B8A6" : status.classe === "yellow" ? "#F59E0B" : "#EF4444";
         document.getElementById("statusVisual").innerHTML = `
             <div class="anel" style="--cor:${corStatus}; --valor:${aluno.ipa}">
                 <span class="anel-valor">${aluno.ipa}</span>
@@ -76,10 +76,10 @@ if (sessao) {
                     {
                         label: "Média",
                         data: aluno.historicoMedia,
-                        borderColor: "#22C55E",
-                        backgroundColor: "rgba(34,197,94,.10)",
+                        borderColor: "#14B8A6",
+                        backgroundColor: "rgba(20,184,166,.10)",
                         fill: true, tension: .4,
-                        pointRadius: 4, pointBackgroundColor: "#22C55E"
+                        pointRadius: 4, pointBackgroundColor: "#14B8A6"
                     }
                 ]
             },
@@ -104,7 +104,7 @@ if (sessao) {
                 datasets: [{
                     label: "Nota",
                     data: notas,
-                    backgroundColor: notas.map(n => n >= 7 ? "#22C55E" : n >= 5 ? "#F59E0B" : "#EF4444"),
+                    backgroundColor: notas.map(n => n >= 7 ? "#14B8A6" : n >= 5 ? "#F59E0B" : "#EF4444"),
                     borderRadius: 8
                 }]
             },

@@ -14,6 +14,25 @@ const COORDENADOR = {
 // Dados base usados para inicializar/resetar o sistema
 const DADOS_BASE = {
     escola: "Escola Estadual Professor Abel Freire Coelho",
+    coordenadores: [
+        {
+            nome: "Coordenação Pedagógica",
+            email: "coordenador@abel.edu.br",
+            senha: "123456"
+        }
+    ],
+    avisos: [
+        {
+            id: 1,
+            titulo: "Bem-vindos ao Sentinela Acadêmica!",
+            texto: "Acompanhem seus indicadores e participem dos chats das turmas. Em caso de dúvidas, procurem a coordenação.",
+            autor: "Coordenação Pedagógica",
+            data: new Date().toISOString(),
+            turma: null,
+            lidoPor: []
+        }
+    ],
+    chats: {},
     alunos: [
         {
             id: 1,
@@ -1658,6 +1677,212 @@ function atualizarAluno(id, campos) {
         salvarDados(dados);
     }
     return aluno;
+}
+
+// ---------- Contas de coordenação ----------
+function getCoordenadores() {
+    const dados = carregarDados();
+    if (!Array.isArray(dados.coordenadores)) {
+        dados.coordenadores = [];
+        salvarDados(dados);
+    }
+    return dados.coordenadores;
+}
+
+function getCoordenadorPorEmail(email) {
+    return getCoordenadores().find(c => c.email.toLowerCase() === String(email).toLowerCase().trim());
+}
+
+function adicionarCoordenador(campos) {
+    const dados = carregarDados();
+    if (!Array.isArray(dados.coordenadores)) dados.coordenadores = [];
+    const email = String(campos.email).trim().toLowerCase();
+    if (dados.coordenadores.some(c => c.email.toLowerCase() === email)) {
+        return null;
+    }
+    const conta = {
+        nome: campos.nome.trim(),
+        email,
+        senha: campos.senha
+    };
+    dados.coordenadores.push(conta);
+    salvarDados(dados);
+    return conta;
+}
+
+// ---------- Cadastro de alunos ----------
+function proximaMatricula(alunos) {
+    const base = new Date().getFullYear();
+    const maxSeq = (alunos || []).reduce((max, a) => {
+        const m = String(a.matricula || "").match(/(\d{4})(\d{3,})$/);
+        if (m && Number(m[1]) === base) return Math.max(max, Number(m[2]));
+        return max;
+    }, 0);
+    return `${base}${String(maxSeq + 1).padStart(3, "0")}`;
+}
+
+function adicionarAluno(campos) {
+    const dados = carregarDados();
+    if (!Array.isArray(dados.alunos)) dados.alunos = [];
+    const alunos = dados.alunos;
+    const maxId = alunos.reduce((m, a) => Math.max(m, Number(a.id) || 0), 0);
+    const id = maxId + 1;
+    const matricula = campos.matricula || proximaMatricula(alunos);
+
+    const aluno = {
+        id,
+        matricula,
+        senha: campos.senha,
+        nome: campos.nome.trim(),
+        turma: campos.turma ? campos.turma.trim() : "Não definida",
+        serie: campos.serie || "",
+        curso: campos.curso || "Regular",
+        media: 7.0,
+        frequencia: 100,
+        ipa: 80,
+        notas: {
+            "Português": 7.0,
+            "Matemática": 7.0,
+            "História": 7.0,
+            "Ciências": 7.0,
+            "Ed. Física": 7.0
+        },
+        historicoIPA: [80, 80, 80, 80, 80, 80],
+        historicoMedia: [7.0, 7.0, 7.0, 7.0, 7.0, 7.0],
+        historicoFrequencia: [100, 100, 100, 100, 100, 100],
+        observacoes: "Conta criada pelo estudante. Acompanhamento inicial em andamento."
+    };
+
+    if (campos.email) aluno.email = campos.email.trim();
+
+    alunos.push(aluno);
+    salvarDados(dados);
+    return aluno;
+}
+
+// ---------- Turmas ----------
+function getTurmas() {
+    const turmas = Array.from(new Set(getAlunos().map(a => a.turma)));
+    return turmas.filter(Boolean);
+}
+
+// ---------- Avisos ----------
+function getAvisos() {
+    const dados = carregarDados();
+    if (!Array.isArray(dados.avisos)) {
+        dados.avisos = [];
+        salvarDados(dados);
+    }
+    return dados.avisos;
+}
+
+function chaveUsuario(sessao) {
+    if (!sessao) return null;
+    if (sessao.tipo === "aluno") return `aluno:${sessao.referencia}`;
+    return `coord:${String(sessao.referencia).toLowerCase()}`;
+}
+
+function getAvisosParaUsuario(sessao) {
+    const avisos = getAvisos();
+    const aluno = sessao && sessao.tipo === "aluno" ? getAlunoPorId(sessao.referencia) : null;
+    const turmaAluno = aluno ? aluno.turma : null;
+
+    return avisos.filter(a => {
+        if (sessao && sessao.tipo !== "aluno") return true; // coordenação vê tudo
+        return !a.turma || a.turma === turmaAluno;
+    }).sort((a, b) => new Date(b.data) - new Date(a.data));
+}
+
+function adicionarAviso(campos, sessao) {
+    const dados = carregarDados();
+    if (!Array.isArray(dados.avisos)) dados.avisos = [];
+    const id = dados.avisos.reduce((m, a) => Math.max(m, Number(a.id) || 0), 0) + 1;
+    const aviso = {
+        id,
+        titulo: campos.titulo.trim(),
+        texto: campos.texto.trim(),
+        autor: (sessao && sessao.tipo === "aluno")
+            ? "Aluno"
+            : "Coordenação Pedagógica",
+        data: new Date().toISOString(),
+        turma: campos.turma || null,
+        lidoPor: []
+    };
+    dados.avisos.push(aviso);
+    salvarDados(dados);
+    return aviso;
+}
+
+function removerAviso(id) {
+    const dados = carregarDados();
+    if (!Array.isArray(dados.avisos)) return;
+    dados.avisos = dados.avisos.filter(a => Number(a.id) !== Number(id));
+    salvarDados(dados);
+}
+
+function marcarAvisoLido(id, sessao) {
+    const chave = chaveUsuario(sessao);
+    if (!chave) return;
+    const dados = carregarDados();
+    const aviso = (dados.avisos || []).find(a => Number(a.id) === Number(id));
+    if (!aviso) return;
+    if (!Array.isArray(aviso.lidoPor)) aviso.lidoPor = [];
+    if (!aviso.lidoPor.includes(chave)) {
+        aviso.lidoPor.push(chave);
+        salvarDados(dados);
+    }
+}
+
+function marcarTodosAvisosLidos(sessao) {
+    const chave = chaveUsuario(sessao);
+    if (!chave) return;
+    const dados = carregarDados();
+    (dados.avisos || []).forEach(a => {
+        if (!Array.isArray(a.lidoPor)) a.lidoPor = [];
+        if (!a.lidoPor.includes(chave)) a.lidoPor.push(chave);
+    });
+    salvarDados(dados);
+}
+
+function contarAvisosNaoLidos(sessao) {
+    if (!sessao) return 0;
+    const visiveis = getAvisosParaUsuario(sessao);
+    const chave = chaveUsuario(sessao);
+    return visiveis.filter(a => !Array.isArray(a.lidoPor) || !a.lidoPor.includes(chave)).length;
+}
+
+// ---------- Chat das turmas ----------
+function getChats() {
+    const dados = carregarDados();
+    if (!dados.chats || typeof dados.chats !== "object") {
+        dados.chats = {};
+        salvarDados(dados);
+    }
+    return dados.chats;
+}
+
+function getMensagensChat(turma) {
+    const chats = getChats();
+    return Array.isArray(chats[turma]) ? chats[turma] : [];
+}
+
+function enviarMensagemChat(campos) {
+    const dados = carregarDados();
+    if (!dados.chats || typeof dados.chats !== "object") dados.chats = {};
+    if (!Array.isArray(dados.chats[campos.turma])) dados.chats[campos.turma] = [];
+
+    const id = dados.chats[campos.turma].reduce((m, m2) => Math.max(m, Number(m2.id) || 0), 0) + 1;
+    const msg = {
+        id,
+        autorTipo: campos.autorTipo,
+        autorNome: campos.autorNome,
+        autorRef: campos.autorRef || null,
+        texto: campos.texto.trim(),
+        data: new Date().toISOString()
+    };
+    dados.chats[campos.turma].push(msg);
+    salvarDados(dados);
+    return msg;
 }
 
 // ---------- Sessão ----------

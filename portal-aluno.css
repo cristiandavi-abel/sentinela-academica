@@ -6,14 +6,14 @@
     width:68px;
     height:68px;
     border-radius:20px;
-    background:linear-gradient(135deg,#3B82F6,#1D4ED8);
+    background:linear-gradient(135deg,#2563EB,#1D4ED8);
     color:#fff;
     display:flex;
     align-items:center;
     justify-content:center;
     font-size:24px;
     font-weight:800;
-    box-shadow:0 8px 20px rgba(59,130,246,.35);
+    box-shadow:0 8px 20px rgba(37,99,235,.35);
 }
 
 .status-visual{
@@ -26,7 +26,7 @@
 
 .anel{
     --valor:0;
-    --cor:#3B82F6;
+    --cor:#2563EB;
     width:160px;
     height:160px;
     border-radius:50%;
@@ -67,7 +67,7 @@
     letter-spacing:.3px;
 }
 
-.status-msg.green{ background:#DCFCE7; color:#15803D; }
+.status-msg.green{ background:#CCFBF1; color:#0F766E; }
 .status-msg.yellow{ background:#FEF3C7; color:#D97706; }
 .status-msg.red{ background:#FEE2E2; color:#DC2626; }
 
@@ -77,9 +77,9 @@
     font-weight:500;
 }
 
-.status-turma i{ margin-right:6px; color:#3B82F6; }
+.status-turma i{ margin-right:6px; color:#2563EB; }
 
-.status-text.green{ color:#15803D; }
+.status-text.green{ color:#0F766E; }
 .status-text.yellow{ color:#D97706; }
 .status-text.red{ color:#DC2626; }
 
@@ -104,6 +104,6 @@
     transition:width .5s ease-out;
 }
 
-.barra-preench.green{ background:linear-gradient(90deg,#10B981,#22C55E); }
+.barra-preench.green{ background:linear-gradient(90deg,#14B8A6,#14B8A6); }
 .barra-preench.yellow{ background:linear-gradient(90deg,#F59E0B,#FBBF24); }
 .barra-preench.red{ background:linear-gradient(90deg,#EF4444,#F87171); }

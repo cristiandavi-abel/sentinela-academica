@@ -42,7 +42,7 @@ new Chart(document.getElementById("graficoDistribuicao"), {
         labels: ["Estáveis", "Atenção", "Alto Risco"],
         datasets: [{
             data: [verde, amarelo, vermelho],
-            backgroundColor: ["#22C55E", "#F59E0B", "#EF4444"],
+            backgroundColor: ["#14B8A6", "#F59E0B", "#EF4444"],
             borderWidth: 0
         }]
     },
@@ -100,7 +100,7 @@ new Chart(document.getElementById("graficoDisciplinas"), {
         datasets: [{
             label: "Média",
             data: mediasDisc,
-            backgroundColor: mediasDisc.map(v => v >= 7 ? "#22C55E" : v >= 5 ? "#F59E0B" : "#EF4444"),
+            backgroundColor: mediasDisc.map(v => v >= 7 ? "#14B8A6" : v >= 5 ? "#F59E0B" : "#EF4444"),
             borderRadius: 8
         }]
     },

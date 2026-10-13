@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sentinela Acadêmica | Avisos</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <main class="content">
+
+        <header class="top-bar">
+            <div>
+                <h1>Avisos da Escola</h1>
+                <p id="subtituloAvisos">Comunicados e notificações.</p>
+            </div>
+            <div class="avatar-coord"><i class="fa-solid fa-bullhorn"></i></div>
+        </header>
+
+        <!-- Coordenação: criar avisos -->
+        <div id="blocoCriar" class="chart-card card-text" style="display:none;margin-bottom:20px;">
+            <h2>Novo aviso</h2>
+            <form id="formAviso" class="aviso-form">
+                <div class="group"><label>Título</label><input type="text" id="avisoTitulo" required></div>
+                <div class="group"><label>Mensagem</label><textarea id="avisoTexto" rows="4" required style="width:100%;padding:12px;border:2px solid #E2E8F0;border-radius:12px;font-family:inherit;"></textarea></div>
+                <div class="group">
+                    <label>Destinatários</label>
+                    <select id="avisoTurma" style="width:100%;padding:12px;border:2px solid #E2E8F0;border-radius:12px;">
+                        <option value="">Todos</option>
+                    </select>
+                </div>
+                <button class="btn" type="submit" style="width:auto;">Publicar aviso</button>
+            </form>
+        </div>
+
+        <div class="chart-card card-text">
+            <h2>Comunicados</h2>
+            <div id="listaAvisos"></div>
+        </div>
+
+    </main>
+
+</div>
+
+<script src="dados.js"></script>
+<script src="app.js"></script>
+<script src="avisos.js"></script>
+
+</body>
+
+</html>

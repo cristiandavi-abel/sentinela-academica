@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sentinela Acadêmica | Contas</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <main class="content">
+
+        <header class="top-bar">
+            <div>
+                <h1>Contas e Acessos</h1>
+                <p>Gerencie as contas de Coordenação e Alunos.</p>
+            </div>
+            <div class="avatar-coord"><i class="fa-solid fa-users-gear"></i></div>
+        </header>
+
+        <section class="cards">
+            <div class="card-info">
+                <i class="fa-solid fa-user-shield"></i>
+                <div><h3 id="totalCoord">0</h3><span>Coordenadores</span></div>
+            </div>
+            <div class="card-info">
+                <i class="fa-solid fa-user-graduate"></i>
+                <div><h3 id="totalAlunos">0</h3><span>Alunos com conta</span></div>
+            </div>
+        </section>
+
+        <div class="chart-card card-text" style="margin-bottom:20px;">
+            <h2>Coordenadores</h2>
+            <form id="formCoord" class="form-grid-4">
+                <div class="group" style="margin:0;"><label>Nome</label><input type="text" id="coordNome" required></div>
+                <div class="group" style="margin:0;"><label>Email</label><input type="email" id="coordEmail" required></div>
+                <div class="group" style="margin:0;"><label>Senha</label><input type="password" id="coordSenha" required minlength="4"></div>
+                <button class="btn" type="submit" style="width:auto;margin:0;">Adicionar</button>
+            </form>
+            <div class="table-card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelaCoords"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="chart-card card-text">
+            <h2>Alunos</h2>
+            <form id="formAluno" class="form-grid-4">
+                <div class="group" style="margin:0;"><label>Nome</label><input type="text" id="alunoNome" required></div>
+                <div class="group" style="margin:0;"><label>Turma</label><input type="text" id="alunoTurma" placeholder="Ex.: 3º Ano A"></div>
+                <div class="group" style="margin:0;"><label>Senha</label><input type="password" id="alunoSenha" required minlength="4"></div>
+                <button class="btn" type="submit" style="width:auto;margin:0;">Adicionar</button>
+            </form>
+            <div class="table-card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Matrícula</th>
+                            <th>Turma</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelaAlunosContas"></tbody>
+                </table>
+            </div>
+            <p class="obs" style="margin-top:12px;"><strong>Obs.:</strong> remover um aluno exclui também seus dados acadêmicos da plataforma.</p>
+        </div>
+
+    </main>
+
+</div>
+
+<script src="dados.js"></script>
+<script src="app.js"></script>
+<script src="contas.js"></script>
+
+</body>
+
+</html>
