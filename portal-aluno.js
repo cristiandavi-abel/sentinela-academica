@@ -95,14 +95,14 @@ if (sessao) {
 
         // Gráfico de notas por disciplina
         const disciplinas = Object.keys(aluno.notas);
-        const notas = Object.values(aluno.notas);
+        const notas = Object.values(aluno.notas).map(arr => (Array.isArray(arr) ? arr.reduce((s, v) => s + v, 0) / arr.length : arr));
         const ctxNotas = document.getElementById("graficoNotas");
         new Chart(ctxNotas, {
             type: "bar",
             data: {
                 labels: disciplinas,
                 datasets: [{
-                    label: "Nota",
+                    label: "Média",
                     data: notas,
                     backgroundColor: notas.map(n => n >= 7 ? "#14B8A6" : n >= 5 ? "#F59E0B" : "#EF4444"),
                     borderRadius: 8
@@ -120,13 +120,15 @@ if (sessao) {
 
         // Tabela de notas
         document.getElementById("tabelaNotas").innerHTML = disciplinas.map(d => {
-            const n = aluno.notas[d];
-            const cls = n >= 7 ? "green" : n >= 5 ? "yellow" : "red";
-            const largura = (n / 10) * 100;
+            const bims = Array.isArray(aluno.notas[d]) ? aluno.notas[d] : [aluno.notas[d]];
+            const media = bims.reduce((s, v) => s + v, 0) / bims.length;
+            const cls = media >= 7 ? "green" : media >= 5 ? "yellow" : "red";
+            const largura = (media / 10) * 100;
             return `
                 <tr>
                     <td>${d}</td>
-                    <td><strong>${n.toFixed(1)}</strong></td>
+                    ${bims.map(b => `<td>${Number(b).toFixed(1)}</td>`).join("")}
+                    <td><strong>${media.toFixed(1)}</strong></td>
                     <td>
                         <div class="barra">
                             <span class="barra-preench ${cls}" style="width:${largura}%"></span>

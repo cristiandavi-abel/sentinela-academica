@@ -79,11 +79,13 @@ if (!sessao) {
         });
 
         document.getElementById("tabelaPerfil").innerHTML = Object.keys(aluno.notas).map(d => {
-            const n = aluno.notas[d];
+            const bims = Array.isArray(aluno.notas[d]) ? aluno.notas[d] : [aluno.notas[d]];
+            const n = bims.reduce((s, v) => s + v, 0) / bims.length;
             const cls = n >= 7 ? "green" : n >= 5 ? "yellow" : "red";
             return `
                 <tr>
                     <td>${d}</td>
+                    ${bims.map(b => `<td>${Number(b).toFixed(1)}</td>`).join("")}
                     <td><strong>${n.toFixed(1)}</strong></td>
                     <td><div class="barra"><span class="barra-preench ${cls}" style="width:${(n/10)*100}%"></span></div></td>
                 </tr>

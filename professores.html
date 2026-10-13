@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentinela Acadêmica | Professores</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="ui.css">
+    <link rel="icon" href="logo.svg" type="image/svg+xml">
+</head>
+<body>
+<div class="dashboard">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="content">
+        <header class="top-bar">
+            <div>
+                <h1>Professores</h1>
+                <p>Coordenação administra quais disciplinas cada professor leciona.</p>
+            </div>
+        </header>
+
+        <section class="chart-card card-text" style="margin-bottom:20px;">
+            <h2>Novo Professor</h2>
+            <form id="formProf" class="form-grid-4">
+                <div class="group" style="margin:0;"><label>Nome</label><input type="text" id="profNome" required></div>
+                <div class="group" style="margin:0;"><label>Email</label><input type="email" id="profEmail" required></div>
+                <div class="group" style="margin:0;"><label>Senha</label><input type="password" id="profSenha" required minlength="4"></div>
+                <button class="btn" type="submit" style="width:auto;margin:0;">Adicionar</button>
+            </form>
+        </section>
+
+        <section id="listaProfessores"></section>
+    </main>
+</div>
+<script src="dados.js"></script>
+<script src="app.js"></script>
+<script src="professores.js"></script>
+</body>
+</html>

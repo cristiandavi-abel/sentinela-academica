@@ -13,7 +13,12 @@ const App = {
         { key: "chat", href: "chat.html", icon: "fa-comments", label: "Chat das Turmas" },
         { key: "relatorios", href: "relatorios.html", icon: "fa-chart-column", label: "Relatórios" },
         { key: "contas", href: "contas.html", icon: "fa-users-gear", label: "Contas e Acessos" },
+        { key: "professores", href: "professores.html", icon: "fa-chalkboard-user", label: "Professores" },
         { key: "configuracoes", href: "configuracoes.html", icon: "fa-gear", label: "Configurações" }
+    ],
+
+    _navProfessor: [
+        { key: "notas", href: "professor.html", icon: "fa-pen-to-square", label: "Lançar Notas" }
     ],
 
     _navAluno: [
@@ -26,7 +31,7 @@ const App = {
     ],
 
     montarSidebar(active, tipo) {
-        const nav = tipo === "aluno" ? this._navAluno : this._navCoordenacao;
+        const nav = tipo === "aluno" ? this._navAluno : tipo === "professor" ? this._navProfessor : this._navCoordenacao;
         const itens = nav.map(item => `
             <a href="${item.href}" class="${item.key === active ? "active" : ""}">
                 <i class="fa-solid ${item.icon}"></i>
@@ -36,7 +41,9 @@ const App = {
 
         const rodape = tipo === "aluno"
             ? `<div class="user-mini"><i class="fa-solid fa-user-graduate"></i><span>Área do Aluno</span></div>`
-            : `<div class="user-mini"><i class="fa-solid fa-user-shield"></i><span>Coordenação Pedagógica</span></div>`;
+            : tipo === "professor"
+                ? `<div class="user-mini"><i class="fa-solid fa-chalkboard-user"></i><span>Área do Professor</span></div>`
+                : `<div class="user-mini"><i class="fa-solid fa-user-shield"></i><span>Coordenação Pedagógica</span></div>`;
 
         return `
             <div class="logo-area">

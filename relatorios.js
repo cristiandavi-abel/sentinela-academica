@@ -85,8 +85,9 @@ new Chart(document.getElementById("graficoTurmas"), {
 const disciplinas = {};
 alunos.forEach(a => {
     Object.entries(a.notas).forEach(([d, n]) => {
+        const mediaDisc = (Array.isArray(n) ? n : [n]).reduce((s, v) => s + v, 0) / (Array.isArray(n) ? n.length : 1);
         if (!disciplinas[d]) disciplinas[d] = { s: 0, n: 0 };
-        disciplinas[d].s += n;
+        disciplinas[d].s += mediaDisc;
         disciplinas[d].n++;
     });
 });

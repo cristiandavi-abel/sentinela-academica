@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentinela Acadêmica | Professor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="ui.css">
+    <link rel="icon" href="logo.svg" type="image/svg+xml">
+</head>
+<body>
+<div class="dashboard">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="content">
+        <header class="top-bar">
+            <div>
+                <h1>Professor</h1>
+                <p id="subProfessor">Lançamento de notas por disciplina.</p>
+            </div>
+        </header>
+
+        <section class="chart-card card-text" style="margin-bottom:20px;">
+            <h2>Lançar Nota</h2>
+            <form id="formNota" class="form-grid-4">
+                <div class="group" style="margin:0;">
+                    <label>Aluno</label>
+                    <select id="selectAluno" required style="width:100%;padding:10px;border-radius:8px;"></select>
+                </div>
+                <div class="group" style="margin:0;">
+                    <label>Disciplina</label>
+                    <select id="selectDisciplina" required style="width:100%;padding:10px;border-radius:8px;"></select>
+                </div>
+                <div class="group" style="margin:0;">
+                    <label>Bimestre</label>
+                    <select id="selectBimestre" required style="width:100%;padding:10px;border-radius:8px;">
+                        <option value="1">1º Bimestre</option>
+                        <option value="2">2º Bimestre</option>
+                        <option value="3">3º Bimestre</option>
+                        <option value="4">4º Bimestre</option>
+                    </select>
+                </div>
+                <div class="group" style="margin:0;">
+                    <label>Nota (0 a 10)</label>
+                    <input type="number" id="inputNota" min="0" max="10" step="0.1" required>
+                </div>
+                <button class="btn" type="submit" style="width:auto;margin:0;">Salvar Nota</button>
+            </form>
+            <p id="msgNota" style="margin-top:10px;"></p>
+        </section>
+
+        <section class="table-card">
+            <h2 style="padding:22px 22px 0;">Alunos e Notas</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aluno</th>
+                        <th>Turma</th>
+                        <th>Disciplina</th>
+                        <th>1º</th><th>2º</th><th>3º</th><th>4º</th>
+                        <th>Média</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelaProfessor"></tbody>
+            </table>
+        </section>
+    </main>
+</div>
+<script src="dados.js"></script>
+<script src="app.js"></script>
+<script src="professor.js"></script>
+</body>
+</html>
