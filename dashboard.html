@@ -35,7 +35,7 @@
 
             <div>
                 <h1>Visão Geral</h1>
-                <p>Bem-vinda, Coordenação Pedagógica.</p>
+                <p>Acompanhe os indicadores da escola.</p>
             </div>
 
             <div class="avatar-coord"><i class="fa-solid fa-user-shield"></i></div>
@@ -66,11 +66,58 @@
 
         </section>
 
+        <!-- Sistema de Gráficos Detalhados -->
+
+        <section class="chart-card" style="margin-top:24px;">
+            <h2><i class="fa-solid fa-chart-pie"></i> Gráficos Detalhados</h2>
+            <p style="color:#64748b;margin-bottom:16px;">Selecione um gráfico para visualizar e, se desejar, compare com outro.</p>
+
+            <div class="chart-selector">
+                <div class="selector-group">
+                    <label>Gráfico Principal</label>
+                    <select id="graficoPrincipal">
+                        <option value="alunosTurma">Alunos por Turma</option>
+                        <option value="frequencia">Distribuição de Frequência</option>
+                        <option value="notasBaixas">Notas Baixas vs Boas Notas</option>
+                        <option value="matriculados">Alunos Matriculados</option>
+                        <option value="pendencias">Pendências por Turma</option>
+                        <option value="desempenhoDisciplina">Desempenho por Disciplina</option>
+                        <option value="evolucaoIPA">Evolução IPA vs Média</option>
+                    </select>
+                </div>
+                <div class="selector-group">
+                    <label>Comparar com (opcional)</label>
+                    <select id="graficoComparacao">
+                        <option value="">— Nenhum —</option>
+                        <option value="alunosTurma">Alunos por Turma</option>
+                        <option value="frequencia">Distribuição de Frequência</option>
+                        <option value="notasBaixas">Notas Baixas vs Boas Notas</option>
+                        <option value="matriculados">Alunos Matriculados</option>
+                        <option value="pendencias">Pendências por Turma</option>
+                        <option value="desempenhoDisciplina">Desempenho por Disciplina</option>
+                        <option value="evolucaoIPA">Evolução IPA vs Média</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="chart-compare-grid" id="chartCompareGrid">
+                <div class="chart-box">
+                    <h3 id="tituloPrincipal">Alunos por Turma</h3>
+                    <canvas id="canvasPrincipal"></canvas>
+                </div>
+                <div class="chart-box" id="boxComparacao" style="display:none;">
+                    <h3 id="tituloComparacao">Comparação</h3>
+                    <canvas id="canvasComparacao"></canvas>
+                </div>
+            </div>
+        </section>
+
     </main>
 
 </div>
 
 <script src="dados.js"></script>
+<script src="preferencias.js"></script>
 <script src="app.js"></script>
 <script src="dashboard.js"></script>
 

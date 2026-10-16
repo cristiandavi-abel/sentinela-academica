@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="dashboard.css">
     <link rel="stylesheet" href="ui.css">
     <link rel="icon" href="logo.svg" type="image/svg+xml">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 <div class="dashboard">
@@ -50,6 +51,45 @@
             <p id="msgNota" style="margin-top:10px;"></p>
         </section>
 
+        <!-- Sistema de Gráficos do Professor -->
+        <section class="chart-card" style="margin-bottom:20px;">
+            <h2><i class="fa-solid fa-chart-pie"></i> Meus Gráficos</h2>
+            <p style="color:#64748b;margin-bottom:16px;">Visualize o desempenho dos seus alunos e disciplinas.</p>
+
+            <div class="chart-selector">
+                <div class="selector-group">
+                    <label>Gráfico Principal</label>
+                    <select id="graficoPrincipal">
+                        <option value="notasDisciplina">Minhas Disciplinas</option>
+                        <option value="desempenhoAlunos">Desempenho dos Alunos</option>
+                        <option value="distribuicaoNotas">Distribuição de Notas</option>
+                        <option value="frequenciaAlunos">Frequência dos Alunos</option>
+                    </select>
+                </div>
+                <div class="selector-group">
+                    <label>Comparar com (opcional)</label>
+                    <select id="graficoComparacao">
+                        <option value="">— Nenhum —</option>
+                        <option value="notasDisciplina">Minhas Disciplinas</option>
+                        <option value="desempenhoAlunos">Desempenho dos Alunos</option>
+                        <option value="distribuicaoNotas">Distribuição de Notas</option>
+                        <option value="frequenciaAlunos">Frequência dos Alunos</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="chart-compare-grid">
+                <div class="chart-box">
+                    <h3 id="tituloPrincipal">Minhas Disciplinas</h3>
+                    <canvas id="canvasPrincipal"></canvas>
+                </div>
+                <div class="chart-box" id="boxComparacao" style="display:none;">
+                    <h3 id="tituloComparacao">Comparação</h3>
+                    <canvas id="canvasComparacao"></canvas>
+                </div>
+            </div>
+        </section>
+
         <section class="table-card">
             <h2 style="padding:22px 22px 0;">Alunos e Notas</h2>
             <table>
@@ -68,6 +108,7 @@
     </main>
 </div>
 <script src="dados.js"></script>
+<script src="preferencias.js"></script>
 <script src="app.js"></script>
 <script src="professor.js"></script>
 </body>

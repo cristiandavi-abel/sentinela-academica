@@ -1,24 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Sentinela Acadêmica - capelo de formatura">
   <defs>
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#4F46E5"/>
-      <stop offset="55%" style="stop-color:#2563EB"/>
-      <stop offset="100%" style="stop-color:#7C3AED"/>
+      <stop offset="0%" stop-color="#4F46E5"/>
+      <stop offset="55%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
     </linearGradient>
     <linearGradient id="capGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#FFFFFF"/>
-      <stop offset="100%" style="stop-color:#DBEAFE"/>
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#DBEAFE"/>
     </linearGradient>
     <linearGradient id="tasselGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#FCD34D"/>
-      <stop offset="100%" style="stop-color:#F59E0B"/>
+      <stop offset="0%" stop-color="#FCD34D"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
     </linearGradient>
     <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#1E1B4B" flood-opacity="0.35"/>
-    </filter>
-    <filter id="innerGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="2" result="blur"/>
-      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#1E1B4B" flood-opacity="0.3"/>
     </filter>
   </defs>
 
@@ -27,27 +23,29 @@
   <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
 
   <!-- Brilho superior -->
-  <ellipse cx="46" cy="34" rx="26" ry="12" fill="rgba(255,255,255,0.18)"/>
+  <ellipse cx="46" cy="34" rx="26" ry="12" fill="rgba(255,255,255,0.15)"/>
 
-  <!-- Capelo (chapeu de formatura) -->
-  <g transform="translate(18, 34)" filter="url(#innerGlow)">
-    <!-- base do chapeu (barrete) -->
-    <path d="M42 22 C42 18 34 14 24 14 C14 14 6 18 6 22 L6 30 C6 34 14 38 24 38 C34 38 42 34 42 30 Z"
-          fill="url(#capGrad)" stroke="rgba(37,99,235,0.18)" stroke-width="1"/>
-    <!-- aba superior (mortarboard) -->
-    <path d="M42 16 L74 32 L42 48 L10 32 Z"
-          fill="url(#capGrad)" stroke="rgba(37,99,235,0.25)" stroke-width="1.5"/>
-    <!-- botao do topo -->
-    <circle cx="42" cy="32" r="4.5" fill="#F59E0B" stroke="#FFFFFF" stroke-width="1.5"/>
-    <!-- pincel/pendulo -->
-    <path d="M60 32 C68 34 70 46 66 58" fill="none" stroke="url(#tasselGrad)" stroke-width="3" stroke-linecap="round"/>
-    <rect x="62" y="58" width="9" height="14" rx="3" fill="url(#tasselGrad)" transform="rotate(8 66 65)"/>
+  <!-- Capelo de formatura -->
+  <g filter="url(#softShadow)">
+    <!-- Aba (mortarboard) -->
+    <path d="M60 20 L102 42 L60 64 L18 42 Z"
+          fill="url(#capGrad)" stroke="rgba(37,99,235,0.3)" stroke-width="1.5"/>
+
+    <!-- Barrete (base do capelo) -->
+    <path d="M32 48 C32 62 42 70 60 70 C78 70 88 62 88 48 L88 44 L32 44 Z"
+          fill="url(#capGrad)"/>
+
+    <!-- Botão central -->
+    <circle cx="60" cy="42" r="5" fill="#F59E0B" stroke="#FFFFFF" stroke-width="1.5"/>
+
+    <!-- Fio/tassel -->
+    <path d="M78 44 C86 46 88 56 84 66" fill="none" stroke="url(#tasselGrad)" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="84" cy="68" r="4" fill="url(#tasselGrad)"/>
   </g>
 
-  <!-- livro estilizado na base (simbodo de estudo) -->
-  <g transform="translate(34, 82)" opacity="0.9">
-    <path d="M0 0 Q13 -6 26 0 L26 10 Q13 4 0 10 Z" fill="rgba(255,255,255,0.35)"/>
-    <path d="M26 0 Q39 -6 52 0 L52 10 Q39 4 26 10 Z" fill="rgba(255,255,255,0.25)"/>
-    <line x1="26" y1="0" x2="26" y2="10" stroke="rgba(255,255,255,0.6)" stroke-width="1.2"/>
+  <!-- Livro aberto -->
+  <g transform="translate(60, 92)" opacity="0.9">
+    <path d="M-24 0 Q-12 -6 0 0 Q12 -6 24 0 L24 10 Q12 4 0 10 Q-12 4 -24 10 Z" fill="rgba(255,255,255,0.3)"/>
+    <line x1="0" y1="0" x2="0" y2="10" stroke="rgba(255,255,255,0.5)" stroke-width="1.2"/>
   </g>
 </svg>

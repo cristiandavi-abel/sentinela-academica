@@ -743,4 +743,23 @@ padding:80px 20px 20px;
 .aviso-meta{ font-size:11px; color:#94A3B8; margin-top:10px; }
 
 
+/* =========================
+   GRÁFICOS DETALHADOS
+========================= */
+.chart-selector{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:24px; }
+.selector-group label{ display:block; font-size:12px; font-weight:700; color:#64748b; margin-bottom:6px; text-transform:uppercase; letter-spacing:.5px; }
+.selector-group select{ width:100%; padding:12px 16px; border:2px solid #E2E8F0; border-radius:12px; background:#F8FAFC; font-size:14px; font-weight:600; color:#0F172A; cursor:pointer; transition:border-color .2s, box-shadow .2s; }
+.selector-group select:hover{ border-color:#CBD5E1; background:#fff; }
+.selector-group select:focus{ border-color:#2563EB; background:#fff; box-shadow:0 0 0 3px rgba(37,99,235,.15); outline:none; }
+
+.chart-compare-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.chart-box{ background:#F8FAFC; border-radius:16px; padding:20px; border:1px solid #E2E8F0; }
+.chart-box h3{ font-size:15px; font-weight:700; color:#1E3A8A; margin-bottom:16px; }
+.chart-box canvas{ width:100% !important; max-height:320px; }
+
+@media(max-width:768px){
+    .chart-selector{ grid-template-columns:1fr; }
+    .chart-compare-grid{ grid-template-columns:1fr; }
+}
+
 @media(max-width:480px){ .notif-dropdown{ width:92vw; right:-8px; } .chat-input-row{ flex-direction:column; } }

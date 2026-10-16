@@ -15,15 +15,15 @@ function render() {
 
     // Coordenadores
     const tbodyCoords = document.getElementById("tabelaCoords");
-    tbodyCoords.innerHTML = coords.map((c, idx) => `
+    tbodyCoords.innerHTML = coords.map((c) => `
         <tr>
             <td>${c.nome}</td>
             <td>${c.email}</td>
             <td>
-                <button class="btn-voltar" style="padding:6px 12px;font-size:12px;" onclick="editarCoord(${idx})">
+                <button class="btn-voltar" style="padding:6px 12px;font-size:12px;" onclick="editarCoord('${c.email}')">
                     <i class="fa-solid fa-pen"></i> Editar
                 </button>
-                <button class="btn-perigo" style="padding:6px 12px;font-size:12px;" onclick="removerCoord(${idx})">
+                <button class="btn-perigo" style="padding:6px 12px;font-size:12px;" onclick="removerCoord('${c.email}')">
                     <i class="fa-solid fa-trash"></i> Remover
                 </button>
             </td>
@@ -49,29 +49,29 @@ function render() {
     `).join("") || `<tr><td colspan="4" class="sem-resultado">Nenhum aluno cadastrado.</td></tr>`;
 }
 
-window.editarCoord = function (idx) {
-    const coords = getCoordenadores();
-    const c = coords[idx];
-    if (!c) return;
+window.editarCoord = function (email) {
+    const dados = carregarDados();
+    const idx = (dados.coordenadores || []).findIndex(c => c.email === email);
+    if (idx === -1) return;
 
+    const c = dados.coordenadores[idx];
     const nome = prompt("Novo nome:", c.nome);
     if (nome === null) return;
     const senha = prompt("Nova senha (deixe em branco para manter):", "");
     if (senha === null) return;
 
-    const dados = carregarDados();
-    const conta = dados.coordenadores[idx];
-    if (!conta) return;
-    if (nome.trim()) conta.nome = nome.trim();
-    if (senha.trim()) conta.senha = senha.trim();
+    if (nome.trim()) c.nome = nome.trim();
+    if (senha.trim()) c.senha = senha.trim();
     salvarDados(dados);
     render();
 };
 
-window.removerCoord = function (idx) {
+window.removerCoord = function (email) {
     const dados = carregarDados();
-    const conta = (dados.coordenadores || [])[idx];
-    if (!conta) return;
+    const idx = (dados.coordenadores || []).findIndex(c => c.email === email);
+    if (idx === -1) return;
+
+    const conta = dados.coordenadores[idx];
 
     if (conta.email === COORDENADOR.email) {
         alert("A conta de demonstração não pode ser removida.");

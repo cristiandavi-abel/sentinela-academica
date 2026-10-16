@@ -13,8 +13,8 @@ const verde = alunos.filter(a => a.ipa < 40).length;
 const amarelo = alunos.filter(a => a.ipa >= 40 && a.ipa < 70).length;
 const vermelho = alunos.filter(a => a.ipa >= 70).length;
 
-const mediaGeral = (alunos.reduce((s, a) => s + a.media, 0) / total).toFixed(1);
-const freqMedia = Math.round(alunos.reduce((s, a) => s + a.frequencia, 0) / total);
+const mediaGeral = total > 0 ? (alunos.reduce((s, a) => s + a.media, 0) / total).toFixed(1) : "0.0";
+const freqMedia = total > 0 ? Math.round(alunos.reduce((s, a) => s + a.frequencia, 0) / total) : 0;
 
 document.getElementById("cardsRelatorio").innerHTML = `
     <div class="card-info">

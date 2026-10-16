@@ -66,9 +66,11 @@ function renderMessages() {
             sess.tipo === "coordenacao" ? true : String(m.autorRef) === String(sess.referencia)
         );
         const data = new Date(m.data).toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" });
+        const online = m.autorTipo === "aluno" ? Pref.estaOnline({ tipo: "aluno", referencia: m.autorRef }) : true;
+        const onlineDot = m.autorTipo === "aluno" ? `<span class="online-dot ${online ? "online" : "offline"}" title="${online ? "Online" : "Offline"}"></span> ` : '';
         return `
             <div class="chat-msg ${meu ? "meu" : "outro"}">
-                <div class="chat-msg-autor">${m.autorNome}</div>
+                <div class="chat-msg-autor">${onlineDot}${m.autorNome}</div>
                 ${escapeHtml(m.texto)}
                 <div class="chat-msg-data">${data}</div>
             </div>
@@ -88,6 +90,14 @@ function enviar() {
     const texto = input.value.trim();
     if (!texto || !turmaAtual) return;
 
+    // Verificar palavras ofensivas
+    const ofensivas = Pref.verificarPalavrasOfensivas(texto);
+    if (ofensivas.length > 0) {
+        alert("Sua mensagem contém palavras ofensivas e não pode ser enviada. Por favor, respeite os colegas.");
+        Pref.tocarSom("erro");
+        return;
+    }
+
     enviarMensagemChat({
         turma: turmaAtual,
         autorTipo: sess.tipo,
@@ -97,6 +107,7 @@ function enviar() {
     });
     input.value = "";
     renderMessages();
+    Pref.tocarSom("mensagem");
 }
 
 document.getElementById("chatEnviar").addEventListener("click", enviar);
@@ -105,4 +116,10 @@ input.addEventListener("keydown", (e) => {
 });
 
 renderMessages();
-setInterval(renderMessages, 3000);
+setInterval(renderMessages, 3000);
+
+// Marcar como online periodicamente
+if (typeof Pref !== "undefined") {
+    Pref.marcarOnline(sess);
+    setInterval(() => Pref.marcarOnline(sess), 30000);
+}

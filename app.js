@@ -18,7 +18,8 @@ const App = {
     ],
 
     _navProfessor: [
-        { key: "notas", href: "professor.html", icon: "fa-pen-to-square", label: "Lançar Notas" }
+        { key: "notas", href: "professor.html", icon: "fa-pen-to-square", label: "Lançar Notas" },
+        { key: "configuracoes", href: "configuracoes.html", icon: "fa-gear", label: "Configurações" }
     ],
 
     _navAluno: [
@@ -26,6 +27,7 @@ const App = {
         { key: "avisos", href: "avisos.html", icon: "fa-bell", label: "Avisos" },
         { key: "chat", href: "chat.html", icon: "fa-comments", label: "Chat da Turma" },
         { key: "perfil", href: "perfil.html", icon: "fa-id-card", label: "Meu Perfil" },
+        { key: "configuracoes", href: "configuracoes.html", icon: "fa-gear", label: "Configurações" },
         { key: "boletim", href: "portal-aluno.html#boletim", icon: "fa-file-lines", label: "Boletim" },
         { key: "frequencia", href: "portal-aluno.html#frequencia", icon: "fa-calendar-check", label: "Frequência" }
     ],
@@ -45,6 +47,28 @@ const App = {
                 ? `<div class="user-mini"><i class="fa-solid fa-chalkboard-user"></i><span>Área do Professor</span></div>`
                 : `<div class="user-mini"><i class="fa-solid fa-user-shield"></i><span>Coordenação Pedagógica</span></div>`;
 
+        // Foto de perfil do usuário logado
+        let fotoPerfil = "";
+        let nomeUsuario = "";
+        if (typeof getSessao === "function") {
+            const sessao = getSessao();
+            if (sessao) {
+                const foto = Pref.getFoto(sessao.tipo, sessao.referencia);
+                if (foto) {
+                    fotoPerfil = `<img src="${foto}" alt="Foto de perfil" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.3);">`;
+                }
+                if (sessao.tipo === "aluno") {
+                    const aluno = getAlunoPorId(sessao.referencia);
+                    nomeUsuario = aluno ? aluno.nome.split(" ")[0] : "Aluno";
+                } else if (sessao.tipo === "professor") {
+                    const prof = getProfessorPorId(sessao.referencia);
+                    nomeUsuario = prof ? prof.nome : "Professor";
+                } else {
+                    nomeUsuario = "Coordenação";
+                }
+            }
+        }
+
         return `
             <div class="logo-area">
                 <img src="logo.svg" alt="Logo">
@@ -52,7 +76,7 @@ const App = {
             </div>
             <nav>${itens}</nav>
             <div class="sidebar-footer">
-                ${rodape}
+                ${fotoPerfil ? `<div class="user-foto">${fotoPerfil}<span>${nomeUsuario}</span></div>` : rodape}
                 <button class="btn-sair" id="btnSair"><i class="fa-solid fa-right-from-bracket"></i> Sair</button>
             </div>
         `;
